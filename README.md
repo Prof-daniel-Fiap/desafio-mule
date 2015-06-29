@@ -29,10 +29,10 @@ Use any tool of your choice to create the WSDL and copy it to a folder of your p
 Create a flow for this service using the HTTP and CXF components.
 The database configuration is already created as a Global Element and can be referenced by the Database processor.
 To implement the employee bonus logic:
-	* Use the already created class com.avenuecode.challenge.integration.EmployeeBonusTransformer
-	* Put a "Java Transformer" processor in the flow associated with EmployeeBonusTransformer class
-	* The bonus must be a random percentage from the employee salary, but not higher than 50%
-	* Make sure the resulting number has a scale of 2
+* Use the already created class com.avenuecode.challenge.integration.EmployeeBonusTransformer
+* Put a "Java Transformer" processor in the flow associated with EmployeeBonusTransformer class
+* The bonus must be a random percentage from the employee salary, but not higher than 50%
+* Make sure the resulting number has a scale of 2
    
 ## REST Web Service
 
@@ -46,7 +46,7 @@ Your service should use JSON as its representation format for objects.
 You can define the resources names and HTTP verbs used.
 
 ## Tips
-* The database used is H2 (h2database.com). It is automatically created in-memory and its DDL and initial data are on src/main/resources/create.sql.
+* The database used is H2 (http://www.h2database.com). It is automatically created in-memory and its DDL and initial data are on src/main/resources/create.sql.
 * You can check the different SOAP requests based on its SOAPAction HTTP header using the expression #[message.inboundProperties.soapaction contains 'xxx'].
 * You can check the HTTP verb using the expression #[message.inboundProperties.'http.method' == 'XXX'].
 * Use the already created type Employee.xsd.
