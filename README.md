@@ -29,6 +29,7 @@ Use any tool of your choice to create the WSDL and copy it to a folder of your p
 Create a flow for this service using the HTTP and CXF components.
 The database configuration is already created as a Global Element and can be referenced by the Database processor.
 To implement the employee bonus logic:
+
 * Use the already created class com.avenuecode.challenge.integration.EmployeeBonusTransformer
 * Put a "Java Transformer" processor in the flow associated with EmployeeBonusTransformer class
 * The bonus must be a random percentage from the employee salary, but not higher than 50%
