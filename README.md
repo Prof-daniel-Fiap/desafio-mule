@@ -55,3 +55,22 @@ You can define the resources names and HTTP verbs used.
 * You can check the HTTP verb using the expression #[message.inboundProperties.'http.method' == 'XXX'].
 * Use the already created type Employee.xsd.
 * Debug your application in order to check the payload format on each step (processor) of the flows.
+
+## Delivery Instructions
+
+1. You must provide his BitBucket username. A free BitBucket account can be created at http://bitbucket.org
+1. The recruiter will give you read permission to a repository named **integration-challenge**, at https://bitbucket.org/ac-recruitment/integration-challenge
+1. You must fork this repository into a private repository on your own account and push your code in there.
+1. Once finished, you must give the user **ac-recruitment** read permission on your repository so that you can be evaluated. Then, please contact back your recruiter and he will get an engineer to evaluate your test.
+1. After you are evaluated, the recruiter will remove your read permission from the original repository.
+
+## Format
+
+* This assessment must be delivered within 2 days.
+* If you wish, you can provide a README.txt (plain text) or a README.md (Markdown) file at the root of your repository, explaining:
+    * Any comments regarding your implementation.
+    * Mention anything that was asked but not delivered and why.
+* Any questions, please send an email to **recruitment.engineering@avenuecode.com**
+
+Thank you,
+The AvenueCode Recruiting Team
