@@ -27,7 +27,9 @@ Use any tool of your choice to create the WSDL and copy it to a folder of your p
 ### 2 - Create a flow using Anypoint Studio to implement the logic for the WSDL created on item 1:
 
 Create a flow for this service using the HTTP and CXF components.
+
 The database configuration is already created as a Global Element and can be referenced by the Database processor.
+
 To implement the employee bonus logic:
 
 * Use the already created class com.avenuecode.challenge.integration.EmployeeBonusTransformer
@@ -44,6 +46,7 @@ To implement the employee bonus logic:
 	* Empty request and returns a list of employees
 
 Your service should use JSON as its representation format for objects.
+
 You can define the resources names and HTTP verbs used.
 
 ## Tips
