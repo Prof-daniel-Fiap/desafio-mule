@@ -10,7 +10,7 @@ Mule 3.6 and Anypoint Studio are compatible only with JDK 1.7.
 
 ## SOAP Web Service
 
-### 1 - Create a WSDL containing the following operations and a flow using Anypoint Studio to implement their logic:
+### 1 - Create a WSDL containing the following operations:
 
 * Get the average employees salary
 	* Empty request and returns a decimal
@@ -21,12 +21,16 @@ Mule 3.6 and Anypoint Studio are compatible only with JDK 1.7.
 	* The bonus must be a random percentage from the employee salary, but not higher than 50%
 	* Make sure the resulting number has a scale of 2
 
-Use any tool of your choice to create the WSDL and copy it to a folder of your project.
+Use any tool of your choice to create the WSDL.
 
 
 ### 2 - Create a flow using Anypoint Studio to implement the logic for the WSDL created on item 1:
 
-Create a flow for this service using the HTTP and CXF components.
+You must complete the project provided in this repository with the missing processors and configuration to achieve this implementation.
+
+Inside the project there are two incomplete flows. Use the soapFlow for this item.
+
+Copy the WSDL create on item 1 to a folder of your project, configure CXF processor and complete the flow with necessary processors.
 
 The database configuration is already created as a Global Element and can be referenced by the Database processor.
 
@@ -45,7 +49,11 @@ To implement the employee bonus logic:
 * List all employees
 	* Empty request and returns a list of employees
 
+Complete the already provided restFlow.
+
 Your service should use JSON as its representation format for objects.
+
+The database configuration is already created as a Global Element and can be referenced by the Database processor.
 
 You can define the resources names and HTTP verbs used.
 
