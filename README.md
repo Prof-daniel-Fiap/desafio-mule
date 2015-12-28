@@ -1,12 +1,12 @@
 # Avenue Code Integration Challenge
 
 This challenge consists of creating two web services, using SOAP and REST.
-Both have to be created in the same project using Anypoint Studio, the IDE for Mule ESB (www.mulesoft.org). You can download it from https://www.mulesoft.com/mule-esb-enterprise-30-day-trial. Make sure you use the 3.6 version of Mule ESB.
+Both have to be created in the same project using Anypoint Studio, the IDE for Mule ESB (www.mulesoft.org). You can download it from https://www.mulesoft.com/mule-esb-enterprise-30-day-trial. Make sure you use the 3.6+ version of Mule ESB.
 
 We believe that without any previous experience with Mule you will still be able to use it because of its intuitive IDE. If you have any difficulties, check their documentation (https://developer.mulesoft.com/docs/display/current/Home) and further resources as YouTube videos.
 
 This source contains the basic template for your implementation.
-Mule 3.6 and Anypoint Studio are compatible only with JDK 1.7.
+Mule 3.6+ and Anypoint Studio are compatible only with JDK 1.7+.
 
 ## SOAP Web Service
 
