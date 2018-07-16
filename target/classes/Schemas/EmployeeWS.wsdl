@@ -1,0 +1,77 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="EmployeeWS"
+     targetNamespace="http://xmlns.oracle.com/Application6/Project1/EmployeeWS"
+     xmlns:tns="http://xmlns.oracle.com/Application6/Project1/EmployeeWS"
+     xmlns:inp1="http://xmlns.oracle.com/singleString"
+     xmlns:inp2="http://xmlns.oracle.com/Application6/Project1/EmployeeWS"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:accite="http://avenuecode.com/challenge/integration/types/Employee"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+    <plnk:partnerLinkType name="EmployeeWS">
+        <plnk:role name="EmployeeWSProvider" portType="tns:employeePort"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/singleString" schemaLocation="singleString.xsd"/>
+        </xsd:schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.oracle.com/Application6/Project1/EmployeeWS"
+             elementFormDefault="qualified">
+            <element name="decimal" type="decimal"/>
+        </schema>
+        <xsd:schema>
+            <xsd:import schemaLocation="Employee.xsd"
+                        namespace="http://avenuecode.com/challenge/integration/types/Employee"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:portType name="employeePort">
+        <wsdl:operation name="getAvarageSalary">
+            <wsdl:input message="tns:requestAS"/>
+            <wsdl:output message="tns:ResponseAS"/>
+        </wsdl:operation>
+        <wsdl:operation name="calculateEmployeeBonus">
+            <wsdl:input message="tns:RequestEB"/>
+            <wsdl:output message="tns:ResponseEB"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="requestAS"/>
+    <wsdl:message name="ResponseAS">
+        <wsdl:part name="avarageSalary" element="tns:decimal"/>
+    </wsdl:message>
+    <wsdl:message name="RequestEB">
+        <wsdl:part name="part" type="accite:Employee"/>
+    </wsdl:message>
+    <wsdl:message name="ResponseEB">
+        <wsdl:part name="Bonus" element="tns:decimal"/>
+    </wsdl:message>
+    <wsdl:binding name="employeePortSOAP12Binding" type="tns:employeePort">
+        <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getAvarageSalary">
+            <soap12:operation style="document"
+                              soapAction="http://xmlns.oracle.com/Application6/Project1/EmployeeWS/getAvarageSalary"/>
+            <wsdl:input>
+                <soap12:body use="literal" parts=""/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" parts="avarageSalary"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="calculateEmployeeBonus">
+            <soap12:operation style="document"
+                              soapAction="http://xmlns.oracle.com/Application6/Project1/EmployeeWS/calculateEmployeeBonus"/>
+            <wsdl:input>
+                <soap12:body use="literal" parts="part"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" parts="Bonus"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="employeePort">
+        <wsdl:port name="employeePortPort" binding="tns:employeePortSOAP12Binding">
+            <soap12:address location="http://www.example.com"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
