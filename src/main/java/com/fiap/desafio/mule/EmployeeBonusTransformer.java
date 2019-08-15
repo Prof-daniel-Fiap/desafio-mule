@@ -1,4 +1,4 @@
-package com.avenuecode.challenge.integration;
+package com.fiap.desafio.mule;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;

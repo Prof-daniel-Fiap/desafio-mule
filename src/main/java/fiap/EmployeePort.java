@@ -1,4 +1,4 @@
-package avenue;
+package fiap;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

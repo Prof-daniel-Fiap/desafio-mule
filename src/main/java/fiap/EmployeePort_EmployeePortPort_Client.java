@@ -1,5 +1,5 @@
 
-package avenue;
+package fiap;
 
 /**
  * Please modify this class to meet your needs
@@ -50,7 +50,7 @@ public final class EmployeePort_EmployeePortPort_Client {
         
         {
         System.out.println("Invoking calculateEmployeeBonus...");
-        avenue.Employee _calculateEmployeeBonus_part = null;
+        fiap.Employee _calculateEmployeeBonus_part = null;
         java.math.BigDecimal _calculateEmployeeBonus__return = port.calculateEmployeeBonus(_calculateEmployeeBonus_part);
         System.out.println("calculateEmployeeBonus.result=" + _calculateEmployeeBonus__return);
 

@@ -15,25 +15,7 @@ http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schem
 http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
     <http:listener-config name="HTTP_Listener_8081" host="localhost" port="8081" doc:name="HTTP Listener Configuration"/>
     <cxf:configuration name="CXF_Configuration" enableMuleSoapHeaders="true" initializeStaticBusInstance="true" doc:name="CXF Configuration"/>
-    <db:mysql-config name="MySQL_Configuration" host="localhost" port="3306" user="root" database="avenue" doc:name="MySQL Configuration"/>
-    <flow name="soapFlow">
-        <http:listener config-ref="HTTP_Listener_8081" path="soap" doc:name="HTTP"/>
-        <cxf:jaxws-service configuration-ref="CXF_Configuration" serviceClass="avenue.EmployeePort" doc:name="CXF"/>
-        <component class="avenue.EmployeePortImpl" doc:name="Java"/>
-        <choice doc:name="Choice">
-            <when expression="#[message.inboundProperties.soapaction contains 'calculateEmployeeBonus']">
-                <custom-transformer class="com.avenuecode.challenge.integration.EmployeeBonusTransformer" doc:name="Bonus"/>
-            </when>
-            <when expression="#[message.inboundProperties.soapaction contains 'getAvarageSalary']">
-                <db:select config-ref="MySQL_Configuration" doc:name="Database">
-                    <db:parameterized-query><![CDATA[select avg(salary) as avg1 from employees]]></db:parameterized-query>
-                </db:select>
-                <set-variable variableName="var_avg" value="#[payload[0].avg1]" doc:name="Variable"/>
-                <custom-transformer class="com.avenuecode.challenge.integration.AvgSalaryTransformer" doc:name="Java"/>
-            </when>
-        </choice>
-
-    </flow>
+    <db:mysql-config name="MySQL_Configuration" host="localhost" port="3306" user="root" database="fiap" doc:name="MySQL Configuration"/>
     <flow name="restFlow">
         <http:listener config-ref="HTTP_Listener_8081" path="employees" doc:name="HTTP">
             <http:response-builder>
@@ -55,5 +37,24 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
             </when>
         </choice>
     </flow>
+    <flow name="soapFlow">
+        <http:listener config-ref="HTTP_Listener_8081" path="soap" doc:name="HTTP"/>
+        <cxf:jaxws-service configuration-ref="CXF_Configuration" serviceClass="fiap.EmployeePort" doc:name="CXF"/>
+        <component class="fiap.EmployeePortImpl" doc:name="Java"/>
+        <choice doc:name="Choice">
+            <when expression="#[message.inboundProperties.soapaction contains 'calculateEmployeeBonus']">
+                <custom-transformer class="com.fiap.desafio.mule.EmployeeBonusTransformer" doc:name="Bonus"/>
+            </when>
+            <when expression="#[message.inboundProperties.soapaction contains 'getAvarageSalary']">
+                <db:select config-ref="MySQL_Configuration" doc:name="Database">
+                    <db:parameterized-query><![CDATA[select avg(salary) as avg1 from employees]]></db:parameterized-query>
+                </db:select>
+                <set-variable variableName="var_avg" value="#[payload[0].avg1]" doc:name="Variable"/>
+                <custom-transformer class="com.fiap.desafio.mule.AvgSalaryTransformer" doc:name="Java"/>
+            </when>
+        </choice>
+
+    </flow>
+
 
 </mule>

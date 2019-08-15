@@ -1,4 +1,4 @@
-package com.avenuecode.challenge.integration;
+package com.fiap.desafio.mule;
 
 import org.mule.api.MuleMessage;
 import org.mule.api.transformer.TransformerException;
